@@ -1,11 +1,11 @@
 #!/bin/bash
-uptime
-megastar
+uptime 
+megastar > /dev/null
 free 
-superstar
+superstar > /dev/null
 uname -a
-rebelstar
+rebelstar > /dev/null
 df -h
-youngtiger
-ls -al
-iconstar
+youngtiger > /dev/null
+ls -al 
+iconstar > /dev/null
