@@ -13,8 +13,8 @@ if [ $# -gt 0 ]; then
         PASSWORD="India@${RANDOM}${SPEC}" 
         echo "Password for ${USERNAME} is ${PASSWORD}" | sudo chpasswd
         passwd -e ${USERNAME}  
-        curl -sL POST ${SLACK-WEB} -H 'Content-type: application/json' --data "{"text": \"Username is: ${USERNAME}\"}" 
-        curl -sL POST ${SLACK-WEB} -H 'Content-type: application/json' --data "{"text": \"Temporary-Password is: ${PASSWORD} Reset the password immediately.\"}"
+        curl -X POST ${SLACK-WEB} -sL -H 'Content-type: application/json' --data "{"text": \"Username is: ${USERNAME}\"}" 
+        curl -X POST ${SLACK-WEB} -sL -H 'Content-type: application/json' --data "{"text": \"Temporary-Password is: ${PASSWORD} Reset the password immediately.\"}"
     fi 
 else
     echo "You have not given $# arguments please provide atleast 1 args."
