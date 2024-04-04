@@ -14,7 +14,7 @@ if [ $# -gt 0 ]; then
         echo "Password for ${USERNAME} is ${PASSWORD}" | sudo chpasswd
         passwd -e ${USERNAME}
         echo "The temporary credentials are ${USERNAME} and ${PASSWORD"
-        curl -X POST ${SLACK-WEB} -sL -H 'Content-type: application/json' --data "{"text": \"Username is: ${USERNAME}\"}" >> /dev/null
+        curl -X POST ${SLACK-WEB} -sL -H 'Content-type: application/json' --data "{"text": \"Username is: ${USERNAME}.\"}" >> /dev/null
         curl -X POST ${SLACK-WEB} -sL -H 'Content-type: application/json' --data "{"text": \"Temporary-Password is: ${PASSWORD} Reset the password immediately.\"}" >> /dev/null
     fi 
 else
