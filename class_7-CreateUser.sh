@@ -1,6 +1,6 @@
 #!/bin/bash
 #set -x
-SLACK_WEB='https://hooks.slack.com/services/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'
+SLACK_WEB='https://hooks.slack.com/services/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'
 USERNAME=$1
 if [ $# -gt 0 ]; then
     if id "$USERNAME" &>/dev/null; then
