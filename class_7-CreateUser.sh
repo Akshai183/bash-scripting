@@ -1,6 +1,6 @@
 #!/bin/bash
 set -x
-SLACK-WEB='https://hooks.slack.com/services/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'
+SLACK_WEB='https://hooks.slack.com/services/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'
 USERNAME=$1
 if [ $# -gt 0 ]; then
     EXISTING_USER=$(cat /etc/passwd | grep -i -w ${USERNAME} | cut -d ':' -f 1)
@@ -15,8 +15,8 @@ if [ $# -gt 0 ]; then
         echo "Password for ${USERNAME} is ${PASSWORD}" | sudo chpasswd
         passwd -e ${USERNAME}
         echo "The temporary credentials are ${USERNAME} and ${PASSWORD"
-        curl -X POST ${SLACK-WEB} -sL -H 'Content-type: application/json' --data "{"text": \"Username is: ${USERNAME}.\"}" >> /dev/null
-        curl -X POST ${SLACK-WEB} -sL -H 'Content-type: application/json' --data "{"text": \"Temporary-Password is: ${PASSWORD} Reset the password immediately.\"}" >> /dev/null
+        curl -X POST ${SLACK_WEB} -sL -H 'Content-type: application/json' --data "{"text": \"Username is: ${USERNAME}.\"}" >> /dev/null
+        curl -X POST ${SLACK_WEB} -sL -H 'Content-type: application/json' --data "{"text": \"Temporary-Password is: ${PASSWORD} Reset the password immediately.\"}" >> /dev/null
     fi 
 else
     echo "You have not given $# arguments please provide atleast 1 args."
