@@ -18,7 +18,7 @@ Get_VPC() {
             echo "##########################"
             echo "# Breaking at $region #"
             echo "#########################"
-            continue
+            break
         fi
     done
 }
