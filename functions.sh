@@ -11,7 +11,7 @@ function hola() {
 
 Get_VPC() {
     echo "running the function to get vpc list"
-    vpc_list=$(aws ec2 describe-vpcs --query 'Vpcs[*].VpcId' --output text)
+    vpc_list=$(aws ec2 describe-vpcs --region $1 | jq .Vpcs[].VpcId | tr -d '"')
     for vpc in vpclist; do
         echo "VPC ID: $vpc"
         echo "---------------------------------------------"
