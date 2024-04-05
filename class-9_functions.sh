@@ -1,6 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 delete_unattached_vols() {
+    echo " Lets check volume status per $region"
     vols=$(aws ec2 describe-volumes --region us-east-1 | jq -r '.Volumes[].VolumeId')
     for vol in $vols; do
         status=$(aws ec2 describe-volumes --volume-ids "$vol" | jq -r ".Volumes[].Attachments[].State")
