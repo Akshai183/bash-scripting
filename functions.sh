@@ -1,9 +1,8 @@
 #!/bin/bash
-fucntion hello {
-    echo "welcome to hello function"    
+function hello {
+    echo "welcome to hello function"
 }
-
-hola() {
+function hola() {
     echo "welcome to hola function"
 }
 
