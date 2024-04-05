@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 delete_vols() {
     vols=$(aws ec2 describe-volumes --region us-east-1 | jq '.Volumes[].VolumeId' | tr -d '"')
     for vol in $vols; do
